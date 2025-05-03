@@ -1,4 +1,4 @@
-# 📝 TaskMate - Task Management App
+# 📝 TaskManager - Task Management App
 
 ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![Angular Material](https://img.shields.io/badge/Material%20UI-757575?style=for-the-badge&logo=mui&logoColor=white)
@@ -7,12 +7,6 @@
 
 > A clean, elegant, and scalable task management app  
 > built with Angular, Angular Material, and Tailwind CSS.
-
----
-
-## 📸 Screenshots
-
-![screenshot](./screenshots/taskmate-main.png)
 
 ---
 
