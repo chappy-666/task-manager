@@ -1,0 +1,32 @@
+<header class="bg-slate-600 text-white shadow-md">
+    <div class="max-w-5xl mx-auto py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="text-lg font-semibold">Task Manager</span>
+      </div>
+  
+      <!-- mobile menu icon -->
+      <button class="md:hidden" (click)="isMenuOpen = !isMenuOpen">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+  
+      <!-- menu for desktop -->
+      <nav class="hidden md:flex space-x-6">
+        <a routerLink="/" class="hover:cursor-pointer hover:text-gray-200 active:scale-95 ">Home</a>
+        <a routerLink="/tasks" class="hover:cursor-pointer hover:text-gray-200 active:scale-95">Tasks</a>
+        <a routerLink="/settings" class="hover:cursor-pointer hover:text-gray-200 active:scale-95">Settings</a>
+      </nav>
+    </div>
+  
+    <!-- menu for mobile -->
+    @if(isMenuOpen){
+      <div class="md:hidden px-4 pb-3 space-y-2 bg-slate-700">
+        <a routerLink="/" class="block hover:underline">Home</a>
+        <a routerLink="/tasks" class="block hover:underline">Tasks</a>
+        <a routerLink="/settings" class="block hover:underline">Settings</a>
+      </div>
+    }
+  
+  </header>
