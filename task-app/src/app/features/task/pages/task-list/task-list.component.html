@@ -1,0 +1,23 @@
+<div class="task-page">
+    <h1>Task List</h1>
+    
+    <!-- タスクの追加フォーム -->
+    <input #taskInput type="text" placeholder="新しいタスクを追加" />
+    <button (click)="addTask(taskInput.value); taskInput.value = ''">Add Task</button>
+  
+    <!-- タスク数 -->
+    <div>
+      <p>完了したタスク: {{ completedCount() }} / {{ tasks().length }}</p>
+    </div>
+  
+    <!-- タスクの一覧表示 -->
+    <ul>
+        @for(task of tasks();track $index){
+            <li>
+                <input type="checkbox" [checked]="task.completed" (change)="toggleTask(task.id)" />
+                {{ task.title }}
+                <button (click)="deleteTask(task.id)">削除</button>
+            </li>
+        }
+    </ul>
+  </div>
