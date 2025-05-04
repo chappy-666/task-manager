@@ -1,16 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, model, signal } from '@angular/core';
 import { taskViewModel } from './view-models/task.signal';
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-task-list',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css'
 })
 export class TaskListComponent {
-  tasks = taskViewModel.tasks;  // Tasks の一覧
+  // input state
+  newTaskInputText = signal('');
+
+  // task state
+  tasks = taskViewModel.tasks;  // all tasks list
   addTask = taskViewModel.addTask;
   toggleTask = taskViewModel.toggleTask;
   deleteTask = taskViewModel.deleteTask;
   completedCount = taskViewModel.completedCount;
+
+  
 }
