@@ -3,13 +3,22 @@ import { Task } from '../../../models/task';
 
 const tasks = signal<Task[]>([]);
 
+// Function to calculate the deadline for a task
+const calculateDeadline = (): Date =>{
+  const deadline = new Date();
+  deadline.setDate(deadline.getDate() + 7);
+  return deadline;
+}
+
 export const taskViewModel = {
   tasks,
   addTask: (title: string) => {
     tasks.update(current => [...current, {
       id: Date.now(),
       title,
-      completed: false
+      completed: false,
+      createdAt: new Date(),
+      deadline: calculateDeadline()
     }]);
   },
   toggleTask: (id: number) => {

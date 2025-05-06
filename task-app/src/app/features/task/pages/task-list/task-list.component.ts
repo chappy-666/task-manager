@@ -1,16 +1,18 @@
-import { Component, model, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { taskViewModel } from './view-models/task.signal';
 import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-task-list',
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css'
 })
 export class TaskListComponent {
   // input state
-  newTaskInputText = signal('');
+  newTask = signal('');
 
   // task state
   tasks = taskViewModel.tasks;  // all tasks list
@@ -18,6 +20,4 @@ export class TaskListComponent {
   toggleTask = taskViewModel.toggleTask;
   deleteTask = taskViewModel.deleteTask;
   completedCount = taskViewModel.completedCount;
-
-  
 }
