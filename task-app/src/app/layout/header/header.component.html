@@ -14,9 +14,10 @@
   
       <!-- menu for desktop -->
       <nav class="hidden md:flex space-x-6">
-        <a routerLink="/" class="hover:cursor-pointer hover:text-gray-200 active:scale-95 ">Home</a>
-        <a routerLink="/tasks" class="hover:cursor-pointer hover:text-gray-200 active:scale-95">Tasks</a>
-        <a routerLink="/settings" class="hover:cursor-pointer hover:text-gray-200 active:scale-95">Settings</a>
+        <a routerLink="/" class="flex items-center hover:cursor-pointer hover:text-gray-200 active:scale-95 ">
+          <lucide-angular class="mr-0.5" [img]="HomeIcon"></lucide-angular>Home</a>
+        <a routerLink="/settings" class="flex items-center hover:cursor-pointer hover:text-gray-200 active:scale-95">
+          <lucide-angular class="mr-0.5" [img]="SettingsIcon"></lucide-angular>Settings</a>
       </nav>
     </div>
   
