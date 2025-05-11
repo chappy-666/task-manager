@@ -2,12 +2,12 @@
     <div class="p-6 bg-white shadow-lg rounded-lg">
         <h1 class="text-2xl font-bold text-slate-800 mb-6">Task List</h1>
         
-        <!-- タスクの追加フォーム -->
+        <!-- add task form -->
         <div class="flex items-center mb-6">
             <input
                 type="text" 
                 [(ngModel)]="newTask"
-                placeholder="-- add new task --" 
+                placeholder="( add new task )" 
                 class="flex-1 placeholder-gray-400 bg-gray-100 border border-gray-300 rounded-lg py-2 px-4 focus:ring-2 focus:ring-slate-500 focus:outline-none text-gray-700"
             />
             <button 
@@ -18,12 +18,12 @@
                 Add Task
             </button>
         </div>
-        <!-- タスク数 -->
+        <!-- number of tasks -->
         <div class="mb-4 text-gray-600 flex justify-start">
             <div class="text-sm">Completed: <span class="font-semibold">{{ completedCount() }}</span> / <span class="font-semibold">{{ tasks().length }}</span></div>
         </div>
     
-        <!-- タスクの一覧表示 -->
+        <!-- display all tasks -->
         <ul class="space-y-4">
             @for(task of tasks();track $index){
                 <li class="flex flex-col bg-slate-50 border border-slate-200 rounded-lg p-4 shadow-sm">

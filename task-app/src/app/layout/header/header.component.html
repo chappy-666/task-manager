@@ -5,29 +5,26 @@
       </div>
   
       <!-- mobile menu icon -->
-      <button class="md:hidden" (click)="isMenuOpen = !isMenuOpen">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+      <button class="md:hidden flex" (click)="isMenuOpen = !isMenuOpen">
+        <lucide-angular class="mr-0.5" [img]="AlignRightIcon"></lucide-angular>
       </button>
   
       <!-- menu for desktop -->
-      <nav class="hidden md:flex space-x-6">
+      <nav class="hidden md:flex space-x-3">
         <a routerLink="/" class="flex items-center hover:cursor-pointer hover:text-gray-200 active:scale-95 ">
           <lucide-angular class="mr-0.5" [img]="HomeIcon"></lucide-angular>Home</a>
-        <a routerLink="/settings" class="flex items-center hover:cursor-pointer hover:text-gray-200 active:scale-95">
+        <a routerLink="/settings" class="flex items-center  hover:cursor-pointer hover:text-gray-200 active:scale-95">
           <lucide-angular class="mr-0.5" [img]="SettingsIcon"></lucide-angular>Settings</a>
       </nav>
     </div>
   
-    <!-- menu for mobile -->
-    @if(isMenuOpen){
-      <div class="md:hidden px-4 pb-3 space-y-2 bg-slate-700">
-        <a routerLink="/" class="block hover:underline">Home</a>
-        <a routerLink="/tasks" class="block hover:underline">Tasks</a>
-        <a routerLink="/settings" class="block hover:underline">Settings</a>
-      </div>
-    }
+    
   
   </header>
+  <!-- menu for mobile -->
+  @if(isMenuOpen){
+    <div class="md:hidden bg-slate-700 px-4 text-white">
+      <a routerLink="/" class="flex hover:cursor-pointer py-2 hover:text-gray-200"><lucide-angular class="mr-0.5" [img]="HomeIcon"></lucide-angular>Home</a>
+      <a routerLink="/settings" class="flex hover:cursor-pointer py-2 hover:text-gray-200"><lucide-angular class="mr-0.5" [img]="SettingsIcon"></lucide-angular>Settings</a>
+    </div>
+  }
