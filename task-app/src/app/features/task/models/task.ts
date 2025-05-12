@@ -4,4 +4,5 @@ export interface Task {
     completed: boolean;
     createdAt: Date;
     deadline: Date | null;
+    completedAt: Date | null;
   }

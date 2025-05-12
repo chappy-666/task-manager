@@ -7,7 +7,7 @@
             <input
                 type="text" 
                 [(ngModel)]="newTask"
-                placeholder="( add new task )" 
+                placeholder=" add new task " 
                 class="flex-1 placeholder-gray-400 bg-gray-100 border border-gray-300 rounded-lg py-2 px-4 focus:ring-2 focus:ring-slate-500 focus:outline-none text-gray-700"
             />
             <button 
@@ -23,9 +23,10 @@
             <div class="text-sm">Completed: <span class="font-semibold">{{ completedCount() }}</span> / <span class="font-semibold">{{ tasks().length }}</span></div>
         </div>
     
-        <!-- display all tasks -->
+        <!-- display pending tasks -->
         <ul class="space-y-4">
-            @for(task of tasks();track $index){
+            <h2 class="text-xl font-semibold text-slate-800 mb-6">Pending Task List</h2>
+            @for(task of pendingTasks();track $index){
                 <li class="flex flex-col bg-slate-50 border border-slate-200 rounded-lg p-4 shadow-sm">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
@@ -52,6 +53,24 @@
                         <p>Created: {{ task.createdAt | date:'short' }}</p>
                         <p>Deadline: <span class="font-bold">{{ task.deadline | date:'short' }}</span></p>
                     </div>
+                </li>
+            }
+        </ul>
+
+        <!-- display completed tasks -->
+        <ul class="space-y-4">
+            <h2 class="text-xl font-semibold text-slate-800 my-6">Complated Task List</h2>
+            @for(task of completedTasks();track $index){
+                <li class="flex flex-col bg-slate-50 border border-slate-200 rounded-lg p-4 shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <span class=" text-slate-800">
+                            {{ task.title }}
+                        </span>
+                        <span class="mt-2 text-sm text-slate-500">
+                            CompletedAt: {{ task.completedAt | date:'short' }}
+                        </span>
+                    </div>
+                    
                 </li>
             }
         </ul>
