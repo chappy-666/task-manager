@@ -11,10 +11,8 @@
   
       <!-- menu for desktop -->
       <nav class="hidden md:flex space-x-3">
-        <a routerLink="/" class="flex items-center hover:cursor-pointer hover:text-gray-200 active:scale-95 ">
-          <lucide-angular class="mr-0.5" [img]="HomeIcon"></lucide-angular>Home</a>
         <a routerLink="/settings" class="flex items-center  hover:cursor-pointer hover:text-gray-200 active:scale-95">
-          <lucide-angular class="mr-0.5" [img]="SettingsIcon"></lucide-angular>Settings</a>
+          <lucide-angular class="mr-0.5" [img]="ProportionsIcon"></lucide-angular>Report</a>
       </nav>
     </div>
   
@@ -24,7 +22,6 @@
   <!-- menu for mobile -->
   @if(isMenuOpen){
     <div class="md:hidden bg-slate-700 px-4 text-white">
-      <a routerLink="/" class="flex hover:cursor-pointer py-2 hover:text-gray-200"><lucide-angular class="mr-0.5" [img]="HomeIcon"></lucide-angular>Home</a>
-      <a routerLink="/settings" class="flex hover:cursor-pointer py-2 hover:text-gray-200"><lucide-angular class="mr-0.5" [img]="SettingsIcon"></lucide-angular>Settings</a>
+      <a routerLink="/settings" class="flex hover:cursor-pointer py-2 hover:text-gray-200"><lucide-angular class="mr-0.5" [img]="ProportionsIcon"></lucide-angular>Report</a>
     </div>
   }

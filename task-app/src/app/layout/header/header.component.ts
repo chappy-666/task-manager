@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LucideAngularModule, Home, Settings ,AlignRight} from 'lucide-angular';
+import { LucideAngularModule, Home, Settings ,AlignRight, LayoutDashboard,Proportions} from 'lucide-angular';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +10,8 @@ import { LucideAngularModule, Home, Settings ,AlignRight} from 'lucide-angular';
 export class HeaderComponent {
   // icons
   readonly HomeIcon = Home;
-  readonly SettingsIcon = Settings;
   readonly AlignRightIcon = AlignRight;
+  readonly ProportionsIcon = Proportions;
 
   isMenuOpen = false;
 }
