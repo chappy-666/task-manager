@@ -8,6 +8,7 @@
                 type="text" 
                 [(ngModel)]="newTask"
                 placeholder=" add new task " 
+                (keydown.enter)="addTask(newTask()); newTask.set('')"
                 class="flex-1 placeholder-gray-400 bg-gray-100 border border-gray-300 rounded-lg py-2 px-4 focus:ring-2 focus:ring-slate-500 focus:outline-none text-gray-700"
             />
             <button 
