@@ -2,8 +2,8 @@ import { Routes } from '@angular/router';
 import { TaskListComponent } from './features/task/pages/task-list/task-list.component';
 
 export const routes: Routes = [
-    {
-        path:'',
-        component: TaskListComponent
-    }
+  {
+    path: '',
+    component: TaskListComponent,
+  },
 ];

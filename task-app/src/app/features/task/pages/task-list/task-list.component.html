@@ -1,79 +1,94 @@
 <div class="max-w-3xl mx-auto px-4">
-    <div class="p-6 bg-white shadow-lg rounded-lg">
-        <h1 class="text-2xl font-bold text-slate-800 mb-6">Task List</h1>
-        
-        <!-- add task form -->
-        <div class="flex items-center mb-6">
-            <input
-                type="text" 
-                [(ngModel)]="newTask"
-                placeholder=" add new task " 
-                (keydown.enter)="addTask(newTask()); newTask.set('')"
-                class="flex-1 placeholder-gray-400 bg-gray-100 border border-gray-300 rounded-lg py-2 px-4 focus:ring-2 focus:ring-slate-500 focus:outline-none text-gray-700"
-            />
-            <button 
-                class="ml-4 h-10 px-4 bg-slate-600 text-white font-medium rounded-lg shadow-md hover:bg-slate-700 transition active:scale-95 disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed disabled:scale-100"
-                (click)="addTask(newTask()); newTask.set('')"
-                [disabled]="newTask().trim() === ''"
-            >
-                Add Task
-            </button>
-        </div>
-        <!-- number of tasks -->
-        <div class="mb-4 text-gray-600 flex justify-start">
-            <div class="text-sm">Completed: <span class="font-semibold">{{ completedCount() }}</span> / <span class="font-semibold">{{ tasks().length }}</span></div>
-        </div>
-    
-        <!-- display pending tasks -->
-        <ul class="space-y-4">
-            <h2 class="text-xl font-semibold text-slate-800 mb-6">Pending Task List</h2>
-            @for(task of pendingTasks();track $index){
-                <li class="flex flex-col bg-slate-50 border border-slate-200 rounded-lg p-4 shadow-sm">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <input 
-                                type="checkbox" 
-                                [checked]="task.completed" 
-                                (change)="toggleTask(task.id)" 
-                                class="h-5 w-5 text-slate-600 border-slate-300 rounded focus:ring-slate-500"
-                            />
-                            <span 
-                                class="ml-3 text-slate-800 {{ task.completed ? 'line-through text-slate-400' : '' }}"
-                            >
-                                {{ task.title }}
-                            </span>
-                        </div>
-                        <button 
-                            class="text-pink-700 hover:text-pink-800 font-medium transition"
-                            (click)="deleteTask(task.id)"
-                        >
-                            Delete
-                        </button>
-                    </div>
-                    <div class="mt-2 text-sm text-slate-500">
-                        <p>Created: {{ task.createdAt | date:'short' }}</p>
-                        <p>Deadline: <span class="font-bold">{{ task.deadline | date:'short' }}</span></p>
-                    </div>
-                </li>
-            }
-        </ul>
+  <div class="p-6 bg-white shadow-lg rounded-lg">
+    <h1 class="text-2xl font-bold text-slate-800 mb-6">Task List</h1>
 
-        <!-- display completed tasks -->
-        <ul class="space-y-4">
-            <h2 class="text-xl font-semibold text-slate-800 my-6">Complated Task List</h2>
-            @for(task of completedTasks();track $index){
-                <li class="flex flex-col bg-slate-50 border border-slate-200 rounded-lg p-4 shadow-sm">
-                    <div class="flex items-center justify-between">
-                        <span class=" text-slate-800">
-                            {{ task.title }}
-                        </span>
-                        <span class="mt-2 text-sm text-slate-500">
-                            CompletedAt: {{ task.completedAt | date:'short' }}
-                        </span>
-                    </div>
-                    
-                </li>
-            }
-        </ul>
+    <!-- add task form -->
+    <div class="flex items-center mb-6">
+      <input
+        type="text"
+        [(ngModel)]="newTask"
+        placeholder=" add new task "
+        (keydown.enter)="addTask(newTask()); newTask.set('')"
+        class="flex-1 placeholder-gray-400 bg-gray-100 border border-gray-300 rounded-lg py-2 px-4 focus:ring-2 focus:ring-slate-500 focus:outline-none text-gray-700"
+      />
+      <button
+        class="ml-4 h-10 px-4 bg-slate-600 text-white font-medium rounded-lg shadow-md hover:bg-slate-700 transition active:scale-95 disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed disabled:scale-100"
+        (click)="addTask(newTask()); newTask.set('')"
+        [disabled]="newTask().trim() === ''"
+      >
+        Add Task
+      </button>
     </div>
+    <!-- number of tasks -->
+    <div class="mb-4 text-gray-600 flex justify-start">
+      <div class="text-sm">
+        Completed: <span class="font-semibold">{{ completedCount() }}</span> /
+        <span class="font-semibold">{{ tasks().length }}</span>
+      </div>
+    </div>
+
+    <!-- display pending tasks -->
+    <ul class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-800 mb-6">
+        Pending Task List
+      </h2>
+      @for (task of pendingTasks(); track $index) {
+        <li
+          class="flex flex-col bg-slate-50 border border-slate-200 rounded-lg p-4 shadow-sm"
+        >
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                [checked]="task.completed"
+                (change)="toggleTask(task.id)"
+                class="h-5 w-5 text-slate-600 border-slate-300 rounded focus:ring-slate-500"
+              />
+              <span
+                class="ml-3 text-slate-800 {{
+                  task.completed ? 'line-through text-slate-400' : ''
+                }}"
+              >
+                {{ task.title }}
+              </span>
+            </div>
+            <button
+              class="text-pink-700 hover:text-pink-800 font-medium transition"
+              (click)="deleteTask(task.id)"
+            >
+              Delete
+            </button>
+          </div>
+          <div class="mt-2 text-sm text-slate-500">
+            <p>Created: {{ task.createdAt | date: "short" }}</p>
+            <p>
+              Deadline:
+              <span class="font-bold">{{ task.deadline | date: "short" }}</span>
+            </p>
+          </div>
+        </li>
+      }
+    </ul>
+
+    <!-- display completed tasks -->
+    <ul class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-800 my-6">
+        Complated Task List
+      </h2>
+      @for (task of completedTasks(); track $index) {
+        <li
+          class="flex flex-col bg-slate-50 border border-slate-200 rounded-lg p-4 shadow-sm"
+        >
+          <div class="flex items-center justify-between">
+            <span class="text-slate-800">
+              {{ task.title }}
+            </span>
+            <span class="mt-2 text-sm text-slate-500">
+              CompletedAt: {{ task.completedAt | date: "short" }}
+            </span>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
 </div>

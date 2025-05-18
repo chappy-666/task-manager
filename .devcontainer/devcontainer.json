@@ -25,8 +25,20 @@
 		"extensions": [
 			"angular.ng-template",
 			"dbaeumer.vscode-eslint",
-			"bradlc.vscode-tailwindcss"
-			]
+			"bradlc.vscode-tailwindcss",
+			"esbenp.prettier-vscode"
+			],
+			"settings": {
+				"editor.formatOnSave": true,
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"prettier.singleQuote": true,
+				"prettier.trailingComma": "all",
+				"prettier.semi": false,
+				"prettier.arrowParens": "avoid",
+				"typescript.format.enable": false,
+				"javascript.format.enable": false,
+				"eslint.format.enable": true
+			}
 		}
 	}
 }
