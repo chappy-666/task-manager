@@ -32,41 +32,41 @@
       <h2 class="text-xl font-semibold text-slate-800 mb-6">
         Pending Task List
       </h2>
-      @for (task of pendingTasks(); track $index) {
-        <li
-          class="flex flex-col bg-slate-50 border border-slate-200 rounded-lg p-4 shadow-sm"
-        >
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <input
-                type="checkbox"
-                [checked]="task.completed"
-                (change)="toggleTask(task.id)"
-                class="h-5 w-5 text-slate-600 border-slate-300 rounded focus:ring-slate-500"
-              />
-              <span
-                class="ml-3 text-slate-800 {{
-                  task.completed ? 'line-through text-slate-400' : ''
-                }}"
-              >
-                {{ task.title }}
-              </span>
-            </div>
-            <button
-              class="text-pink-700 hover:text-pink-800 font-medium transition"
-              (click)="deleteTask(task.id)"
+      @for (task of pendingTasks(); track task.id) {
+      <li
+        class="flex flex-col bg-slate-50 border border-slate-200 rounded-lg p-4 shadow-sm"
+      >
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              [checked]="task.completed"
+              (change)="toggleTask(task.id)"
+              class="h-5 w-5 text-slate-600 border-slate-300 rounded focus:ring-slate-500"
+            />
+            <span
+              class="ml-3 text-slate-800 {{
+                task.completed ? 'line-through text-slate-400' : ''
+              }}"
             >
-              Delete
-            </button>
+              {{ task.title }}
+            </span>
           </div>
-          <div class="mt-2 text-sm text-slate-500">
-            <p>Created: {{ task.createdAt | date: "short" }}</p>
-            <p>
-              Deadline:
-              <span class="font-bold">{{ task.deadline | date: "short" }}</span>
-            </p>
-          </div>
-        </li>
+          <button
+            class="text-pink-700 hover:text-pink-800 font-medium transition"
+            (click)="deleteTask(task.id)"
+          >
+            Delete
+          </button>
+        </div>
+        <div class="mt-2 text-sm text-slate-500">
+          <p>Created: {{ task.createdAt | date : "short" }}</p>
+          <p>
+            Deadline:
+            <span class="font-bold">{{ task.deadline | date : "short" }}</span>
+          </p>
+        </div>
+      </li>
       }
     </ul>
 
@@ -76,18 +76,18 @@
         Complated Task List
       </h2>
       @for (task of completedTasks(); track $index) {
-        <li
-          class="flex flex-col bg-slate-50 border border-slate-200 rounded-lg p-4 shadow-sm"
-        >
-          <div class="flex items-center justify-between">
-            <span class="text-slate-800">
-              {{ task.title }}
-            </span>
-            <span class="mt-2 text-sm text-slate-500">
-              CompletedAt: {{ task.completedAt | date: "short" }}
-            </span>
-          </div>
-        </li>
+      <li
+        class="flex flex-col bg-slate-50 border border-slate-200 rounded-lg p-4 shadow-sm"
+      >
+        <div class="flex items-center justify-between">
+          <span class="text-slate-800">
+            {{ task.title }}
+          </span>
+          <span class="mt-2 text-sm text-slate-500">
+            CompletedAt: {{ task.completedAt | date : "short" }}
+          </span>
+        </div>
+      </li>
       }
     </ul>
   </div>

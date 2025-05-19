@@ -38,8 +38,8 @@ export const taskViewModel = {
               completed: !t.completed,
               completedAt: t.completed ? null : new Date(),
             }
-          : t,
-      ),
+          : t
+      )
     );
   },
   deleteTask: (id: number) => {
