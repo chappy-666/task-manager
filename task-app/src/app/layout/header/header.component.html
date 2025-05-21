@@ -1,5 +1,5 @@
 <header class="bg-slate-600 text-white shadow-md px-4">
-  <div class="max-w-5xl mx-auto py-3 flex items-center justify-between">
+  <div class="max-w-5xl mx-auto py-4 flex items-center justify-between">
     <div class="flex items-center space-x-3">
       <span class="text-lg font-semibold">Task Manager</span>
     </div>
@@ -23,12 +23,12 @@
 </header>
 <!-- menu for mobile -->
 @if (isMenuOpen) {
-  <div class="md:hidden bg-slate-700 px-4 text-white">
-    <a
-      routerLink="/settings"
-      class="flex hover:cursor-pointer py-2 hover:text-gray-200"
-      ><lucide-angular class="mr-0.5" [img]="ProportionsIcon"></lucide-angular
-      >Report</a
-    >
-  </div>
+<div class="md:hidden bg-slate-700 px-4 text-white">
+  <a
+    routerLink="/settings"
+    class="flex hover:cursor-pointer py-2 hover:text-gray-200"
+    ><lucide-angular class="mr-0.5" [img]="ProportionsIcon"></lucide-angular
+    >Report</a
+  >
+</div>
 }
